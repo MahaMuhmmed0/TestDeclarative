@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('SCM checkout') {
             steps {
+                 echo 'Running from github'
                 echo 'checkout completed'
             }
         }
@@ -15,7 +16,6 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Test completed'
-              //  sh 'date'
             }
         }
         stage('Deploy') {

@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    environment{
+        NEW_VERSION='1.3.0'
+    }
     stages {
         stage('SCM checkout') {
             steps {
@@ -11,11 +13,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Build completed'
+                echo "Version= $[NEW_VERSION]"
             }
         }
         stage('Test') {
             steps {
                 echo 'Test completed'
+                sh "$[NEW_VERSION]"
             }
         }
         stage('Deploy') {
